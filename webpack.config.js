@@ -16,10 +16,10 @@ module.exports = {
   },
   plugins: [
     new UglifyJsPlugin({ sourceMap: true }),
-    new CleanWebpackPlugin(['dist']),
     new Dotenv(),
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Ping Pong',
+      title: 'Better Doctor',
       template: './src/index.html',
       inject: 'body'
     }),
