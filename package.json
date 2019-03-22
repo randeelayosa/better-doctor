@@ -1,5 +1,5 @@
 {
-  "name": "webpack-template",
+  "name": "better-doctor",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "lint": "eslint src/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Randee Layosa",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",

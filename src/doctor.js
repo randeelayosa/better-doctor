@@ -1,57 +1,71 @@
-export function checkType(arr) {
-  var sequence = [1,2,3,4,5,6,7,8,9];
-  var counter = 0;
-  for (var i=0; i < 9; i++) {
-    if (typeof arr[i] === "number") {
-      counter += 1 ;
-    }
-  }
-  if (counter === 9) {
-    arr = arr.sort();
-    for (var j=0; j < 9; j++) {
-      if (arr[j] === 0) {
-        return "has zero";
-      } else if (arr[j] > 9) {
-        return "greater than nine";
-      } else if (arr.join() !== sequence.join()) {
-        return "repeating numbers";
+// import $ from 'jquery';
+
+
+export class FirstName {
+  getFirst(firstName){
+    return new Promise(function(resolve, reject) {
+    let request = new XMLHttpRequest();
+    let url = `https://api.betterdoctor.com/2016-03-01/doctors?first_name=${firstName}&location=or-portland&user_location=45.5122%2C%20.122.6587&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+    request.onload = function() {
+      if (this.status === 200) {
+        resolve(request.response);
+      } else {
+        reject(Error(request.statusText));
       }
-      return "nine numbers";
-    }
+    };
+      request.open("GET", url, true);
+      request.send();
+    });
   }
 }
 
-
-
-
-
-// Sequence.prototype.checkType = function() {
-//   if ((typeof this.num1 === "number") && (typeof this.num2 === "number") && (typeof this.num3 === "number") && (typeof this.num4 === "number")) {
-//     return "numbers";
-//     if ((typeof this.num5 === "number") && (typeof this.num6 === "number") && (typeof this.num7 === "number") && (typeof this.num8 === "number") && (typeof this.num9 === "number"))
-//   } else {
-//     false
+//
+// export class FirstName {
+//   getData(){
+//     const promise = new Promise(function(resolve, reject) {
+//       const request = new XMLHttpRequest();
+//       let url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=' + ${apiKey};
+//       request.onload = function() {
+//         if (this.status === 200) {
+//           resolve(request.response);
+//         } else {
+//           reject(Error(request.statusText));
+//         }
+//       }
+//       request.open("GET", url, true);
+//       request.send();
+//     });
+//
+//     promise.then(function(response) {
+//       const body = JSON.parse(response);
+//       that.data = body;
+//     }, function(error) {
+//       console.log(error);
+//     });
 //   }
 // }
-// };
-
-// num1, num2, num3, num4, num5, num6, num7, num8, num9
-// this.num1 = num1;
-// this.num2 = num2;
-// this.num3 = num3;
-// this.num4 = num4;
-// this.num5 = num5;
-// this.num6 = num6;
-// this.num7 = num7;
-// this.num8 = num8;
-// this.num9 = num9;
-
-
-// for (var i=1; i <= 9; i++) {
-//   var number = num.concat(i);
-//   if (typeof Sequence.number = "number") {
-//     true
-//   } else {
-//     return false
+//
+// export class LastName {
+//   getData(){
+//     const promise = new Promise(function(resolve, reject) {
+//       const request = new XMLHttpRequest();
+//       let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=or-portland&sort=first-name-asc&skip=0&limit=10&user_key=4099e3d0c4a9764540a70e1e72e188de`;
+//       request.onload = function() {
+//         if (this.status === 200) {
+//           resolve(request.response);
+//         } else {
+//           reject(Error(request.statusText));
+//         }
+//       }
+//       request.open("GET", url, true);
+//       request.send();
+//     });
+//
+//     promise.then(function(response) {
+//       const body = JSON.parse(response);
+//       that.data = body;
+//     }, function(error) {
+//       console.log(error);
+//     });
 //   }
 // }
