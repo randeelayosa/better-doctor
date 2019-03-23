@@ -1,6 +1,3 @@
-// import $ from 'jquery';
-
-
 export class FirstName {
   getFirst(firstName){
     return new Promise(function(resolve, reject) {
@@ -19,31 +16,8 @@ export class FirstName {
   }
 }
 
-//
-// export class FirstName {
-//   getData(){
-//     const promise = new Promise(function(resolve, reject) {
-//       const request = new XMLHttpRequest();
-//       let url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=10&user_key=' + ${apiKey};
-//       request.onload = function() {
-//         if (this.status === 200) {
-//           resolve(request.response);
-//         } else {
-//           reject(Error(request.statusText));
-//         }
-//       }
-//       request.open("GET", url, true);
-//       request.send();
-//     });
-//
-//     promise.then(function(response) {
-//       const body = JSON.parse(response);
-//       that.data = body;
-//     }, function(error) {
-//       console.log(error);
-//     });
-//   }
-// }
+
+
 //
 // export class LastName {
 //   getData(){
