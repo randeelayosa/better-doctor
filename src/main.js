@@ -1,22 +1,37 @@
 import $ from 'jquery';
-import Issue from "./doctor.js";
+import { Doc }  from "./doctor.js";
 
 
 $(document).ready(function() {
-  const docFirst = new FirstName();
-  docFirst.getFirst();
   $('.userQuery').submit(function(event) {
     event.preventDefault();
-    let firstName = $('#firstName').val();
-    console.log(firstName);
-  });
+    const issue = $("#issue").val();
+    const firstName = $("#firstName").val();
+    const lastName = $("#lastName").val();
 
-  promise.then(function(response) {
-    const body = JSON.parse(response);
-    setTimeout(function() {
-      $(".output").text(docFirst);
-      that.data = body;
-    }, 2000);
+    const doctor = new Doc();
+    let promise = doctor.getDoc(issue, firstName, lastName);
 
+    promise.then(function(response) {
+      const body = JSON.parse(response);
+      const parseFirst = body.data[0].profile.first_name;
+      const parseLast = body.data[0].profile.last_name;
+      const parseIssue = body.data[0].specialties[0].description.includes(`${issue}`);
+      const parsePhone = body.data[0].practices[0].phones[0].number;
+      const parseAccPat = body.data[0].practices[0].accepts_new_patients;
+      const parseStreet = body.data[0].practices[0].visit_address.street;
+      const parseSuite = body.data[0].practices[0].visit_address.street2;
+      const parseCity = body.data[0].practices[0].visit_address.city;
+      const parseState = body.data[0].practices[0].visit_address.state;
+      const parseZip = body.data[0].practices[0].visit_address.zip;
+      const address = (parseStreet+", "+parseSuite+", "+parseCity+", "+parseState+" "+parseZip);
+      const parsePhoto = body.data[0].profile.image_url;
+
+      console.log(body.data[0].specialties[0].description.includes(`${issue}`));
+
+      $(".output").text("Dr. "+parseFirst+" "+parseLast);
+      $(".output").append(parsePhone);
+      $(".output").append(address);
+    });
   });
 });

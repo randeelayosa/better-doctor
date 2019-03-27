@@ -1,6 +1,6 @@
 # Better Doctor
 
-#### _Front End Development/JavaScript, Week 11 - Independent Project}, 3.22.19_
+#### _Front End Development/JavaScript, Week 11 - Independent Project, 3.22.19_
 
 #### By _**Randee Layosa**_
 
