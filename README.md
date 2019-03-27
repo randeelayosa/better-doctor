@@ -21,7 +21,7 @@ _This app uses the Better Doctor API to query the database for specific informat
 
 #### _Obtaining an API Key_
 To use this app you will need to retrieve an API key of your own.
-* Go to the Better Doctor API site and click "Get free API key."
+* Go to the <a href="https://developer.betterdoctor.com/">Better Doctor API</a> site and click "Get free API key."
 * Fill out the form.
 * Your API key should be listed on the front page (ex: “a2c356ibgh44…..”) or under My Account > Applications.
 * In the `doctor.js` file. Replace the code that says `${process.env.exports.apiKey}` with your key.
