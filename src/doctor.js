@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export class Doc {
   getDoc(issue, firstName, lastName){
     return new Promise(function(resolve, reject) {
@@ -14,35 +16,20 @@ export class Doc {
       request.send();
     });
   }
+
+
+  getData(body){
+    for(let i=0; i<body.data.length; i++){
+      if(body.data[i].profile.length === 0 && body.data[i].specialties.length === 0) {
+        $(".output").text(`<div class="no-result">There are no results that match your search.</div>`);
+      }else{
+        $(".output").append(`<div class="results">Dr. ${body.data[i].profile.first_name} ${body.data[i].profile.last_name} <br> Specialty: ${body.data[i].specialties[0].description} <br> ${body.data[i].practices[0].phones[0].number} <br> ${body.data[i].practices[0].visit_address.street} <br> ${body.data[i].practices[0].visit_address.street2} <br> ${body.data[i].practices[0].visit_address.city}, ${body.data[i].practices[0].visit_address.state} ${body.data[i].practices[0].visit_address.zip}</div>`);
+      }
+      if(body.data[i].practices[0].accepts_new_patients === true) {
+        $(".output").append(`<div class="results">Accepting new patients: Yes</div>`);
+      }else{
+        $(".output").append(`<div class="results">Accepting new patients: No</div>`);
+      }
+    }
+  }
 }
-
-
-// export class DataArr {
-//   getData(data){
-//     for(let i=0; i<data.length; i++){
-//       return data[i];
-//     }
-//   }
-// }
-
-// export class Accepting {
-//   accPat(data){
-//     if(parseAccPat === true){
-//        return "yes";
-//     }else{
-//      return "no";
-//     }
-//     }
-//   }
-// }
-
-// export class Picture {
-//   profPic(data){
-//     if(parsePhoto === ""){
-//        return "";
-//     }else{
-//      return parsePhoto.text;
-//     }
-//     }
-//   }
-// }

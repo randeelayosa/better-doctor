@@ -9,13 +9,13 @@
 
 ## Description
 
-_This app uses the Better Doctor API to query the database for specific information. A user can input either a symptom or a Doctor's name and a list that best fit those parameters will be provided._
+_This app uses the Better Doctor API to query the database for specific information. A user can input either a symptom or a name and a list of Doctors in the Portland Metro Area that best fit those parameters will be provided._
 
 ## Setup/Installation Requirements
 
 #### _To open and view this project:_
 * Go to this link to view the files on GitHub https://github.com/randeelayosa/better-doctor.git , or you can also clone the repository.
-* To clone, open your Terminal, enter the command: `cd desktop` , enter the command: `git clone [paste link here]` and then press _Enter_.
+* To clone, open your Terminal, enter the command: `cd desktop` , and then enter the command: `git clone [paste link here]`.
 * In terminal, navigate to the cloned project file on your Desktop with `cd desktop/[project folder name]`.
 * Enter `atom .` if Atom is your preferred text editor. Or, open the folder in a Finder window, select the files you want to view, right click, and select the text editor of your preference.
 
@@ -30,8 +30,6 @@ To use this app you will need to retrieve an API key of your own.
 ## Technologies Used
 
 * _Webpack_
-* _Jasmine_
-* _Karma_
 * _Babel_
 * _JavaScript (ES6)_
 
