@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import './sass/styles.scss';
 import { Doc }  from "./doctor.js";
 
 
@@ -14,7 +15,6 @@ $(document).ready(function() {
 
     promise.then(function(response) {
       const body = JSON.parse(response);
-      doctor.getData(body);
       // const parseFirst = body.data[i].profile.first_name;
       // const parseLast = body.data[i].profile.last_name;
       // const parseIssue = body.data[0].specialties[0].description.includes(`${issue}`);
@@ -34,6 +34,9 @@ $(document).ready(function() {
       // $(".output").text("Dr. "+parseFirst+" "+parseLast);
       // $(".output").append(parsePhone);
       // $(".output").append(address);
+      doctor.getData(body);
     });
+    $(".output").show();
+    $(".userQuery").hide();
   });
 });
